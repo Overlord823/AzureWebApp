@@ -1,0 +1,57 @@
+from flask import Flask, Markup
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    html_content = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Welcome to SENTIAN</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            .banner {
+                width: 100%;
+                height: 300px;
+                background-image: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f');
+                background-size: cover;
+                background-position: center;
+            }
+            h1 {
+                font-size: 3em;
+                margin-top: 30px;
+            }
+            .black-red {
+                color: red;
+            }
+            .black-red span {
+                color: black;
+            }
+            p {
+                font-size: 1.2em;
+                margin-top: 10px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="banner"></div>
+
+        <h1 class="black-red"><span>Welcome to</span> SENTIAN</h1>
+        <p>This is a simple one-file Flask web app with style and image!</p>
+
+    </body>
+    </html>
+    """
+    return Markup(html_content)
+
+if __name__ == "__main__":
+    app.run(debug=True)
